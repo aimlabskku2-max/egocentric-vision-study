@@ -1,0 +1,175 @@
+{
+  "_readme": "주차별 자료 링크만 이 파일에서 수정하세요. slides / video 값이 빈 문자열이면 표에 '—'로 표시됩니다.",
+  "stage1": [
+    {
+      "week": "1–2주차",
+      "title": "Overview I & II",
+      "gloss": "What is egocentric video? · Why is egocentric video important? · task map · Instruction",
+      "slides": "https://drive.google.com/drive/folders/15GZppmGZ9_VLtR1Tan2Ho5cOs2nYkKGe?usp=drive_link",
+      "video": "https://drive.google.com/drive/folders/15GZppmGZ9_VLtR1Tan2Ho5cOs2nYkKGe?usp=drive_link",
+      "summary": "에고센트릭 비디오가 무엇이고 왜 중요한지에서 출발해, 이 분야가 다루는 태스크 지형(task map)과 스터디 진행 방식을 정리합니다."
+    },
+    {
+      "week": "3주차",
+      "title": "View & Representation",
+      "gloss": "Ego-view vs Exo-view Representation · Cross-view Learning & View Transfer",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "1인칭(ego)과 3인칭(exo) 시점이 만드는 표현의 차이를 비교하고, 두 시점을 잇는 cross-view learning과 view transfer 접근을 살펴봅니다."
+    },
+    {
+      "week": "4주차",
+      "title": "Temporal Understanding",
+      "gloss": "Action Recognition & Temporal Localization · Action Anticipation & Forecasting",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "영상에서 행동을 인식하고 시간 축에서 구간을 찾아내는 방법, 그리고 아직 일어나지 않은 행동을 예측하는 anticipation·forecasting 문제를 다룹니다."
+    },
+    {
+      "week": "5주차",
+      "title": "Video-Language & Procedural Understanding",
+      "gloss": "Egocentric Video-Language Learning · Procedural Understanding from Egocentric Video",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "영상과 언어를 함께 학습하는 방법, 그리고 요리·조립처럼 여러 단계로 이뤄진 작업의 절차를 이해하는 연구를 정리합니다."
+    },
+    {
+      "week": "6주차",
+      "title": "Audio-Visual Understanding",
+      "gloss": "Audio-Visual Learning for Egocentric Video · Audio-Visual Event & Action Understanding",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "소리를 함께 사용해 장면과 행동을 이해하는 방법, 오디오·비주얼 이벤트 검출과 행동 이해를 다룹니다."
+    },
+    {
+      "week": "7주차",
+      "title": "Social & Attention Understanding",
+      "gloss": "Speech, Conversation & Social Interaction · Gaze, Gesture & Joint Attention",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "대화와 사회적 상호작용을 다루는 연구와, 시선·제스처·공동 주의(joint attention)로 사람의 주의를 추정하는 방법을 살펴봅니다."
+    },
+    {
+      "week": "8주차",
+      "title": "Spatial & 3D Understanding",
+      "gloss": "3D Understanding from Egocentric Video · Camera Pose, Spatial Memory & Object Search",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "1인칭 영상에서 3차원 공간을 복원하고, 카메라 포즈와 공간 기억을 이용해 물체를 찾는 문제를 다룹니다."
+    },
+    {
+      "week": "9주차",
+      "title": "Hand-Object Interaction",
+      "gloss": "Hand-Object Interaction Understanding · Contact, Affordance & Object-Centric Interaction",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "손과 물체의 상호작용을 인식하는 방법, 접촉(contact)과 어포던스(affordance)에 기반한 물체 중심 이해를 정리합니다."
+    },
+    {
+      "week": "10주차",
+      "title": "Open Discussion",
+      "gloss": "Individual research idea sharing · Discussion for future research directions",
+      "slides": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "video": "https://drive.google.com/drive/folders/1cU_x7W3XCFTxJiA6x21pubM_2TuQJwJp?usp=sharing",
+      "summary": "각자 관심 있는 연구 아이디어를 공유하고, 이후 연구 방향을 함께 논의합니다."
+    }
+  ],
+  "stage2": [
+    {
+      "week": "1주차",
+      "title": "Learning from Human Egocentric Video",
+      "gloss": "Robot Learning from Egocentric Video I",
+      "slides": "",
+      "video": "",
+      "summary": "사람의 1인칭 영상을 로봇 학습의 자료로 사용하는 접근을 정리합니다."
+    },
+    {
+      "week": "2주차",
+      "title": "Human Egocentric Video as Weak Demonstration",
+      "gloss": "Robot Learning from Egocentric Video I",
+      "slides": "",
+      "video": "",
+      "summary": "라벨이 없는 사람 영상을 약한 시연(weak demonstration)으로 활용하는 방법을 다룹니다."
+    },
+    {
+      "week": "3주차",
+      "title": "Imitation, Skill Learning & Human-to-Robot Transfer",
+      "gloss": "Robot Learning from Egocentric Video II",
+      "slides": "",
+      "video": "",
+      "summary": "모방 학습과 스킬 학습으로 사람의 동작을 로봇으로 옮기는 연구를 살펴봅니다."
+    },
+    {
+      "week": "4주차",
+      "title": "Manipulation Prior, Affordance & Policy Learning",
+      "gloss": "Robot Learning from Egocentric Video II",
+      "slides": "",
+      "video": "",
+      "summary": "조작 사전지식(manipulation prior)과 어포던스를 정책 학습에 결합하는 방법을 다룹니다."
+    },
+    {
+      "week": "5주차",
+      "title": "Egocentric Memory, Navigation & Planning",
+      "gloss": "Egocentric Video for Embodied AI I",
+      "slides": "",
+      "video": "",
+      "summary": "1인칭 관찰을 기억으로 축적해 탐색과 계획에 사용하는 접근을 정리합니다."
+    },
+    {
+      "week": "6주차",
+      "title": "Object Search, Spatial Memory & Long-Horizon Tasks",
+      "gloss": "Egocentric Video for Embodied AI I",
+      "slides": "",
+      "video": "",
+      "summary": "공간 기억을 이용한 물체 탐색과 장기 과업(long-horizon task) 수행을 다룹니다."
+    },
+    {
+      "week": "7주차",
+      "title": "Egocentric Video for Embodied Foundation Models",
+      "gloss": "Egocentric Video for Embodied AI II",
+      "slides": "",
+      "video": "",
+      "summary": "1인칭 영상을 embodied foundation model 학습에 사용하는 연구를 살펴봅니다."
+    },
+    {
+      "week": "8주차",
+      "title": "Egocentric Pretraining for VLM / VLA",
+      "gloss": "Egocentric Video for Embodied AI II",
+      "slides": "",
+      "video": "",
+      "summary": "VLM·VLA 모델을 1인칭 데이터로 사전학습하는 방법을 다룹니다."
+    },
+    {
+      "week": "9주차",
+      "title": "Egocentric Future Prediction & World Models",
+      "gloss": "Egocentric World Models I",
+      "slides": "",
+      "video": "",
+      "summary": "다음 장면과 상태를 예측하는 world model 기반 접근을 정리합니다."
+    },
+    {
+      "week": "10주차",
+      "title": "Future State Prediction from First-Person Observation",
+      "gloss": "Egocentric World Models I",
+      "slides": "",
+      "video": "",
+      "summary": "1인칭 관찰만으로 미래 상태를 예측하는 문제를 다룹니다."
+    },
+    {
+      "week": "11주차",
+      "title": "Egocentric World Models for Robotics and Embodied Agents",
+      "gloss": "Egocentric World Models II",
+      "slides": "",
+      "video": "",
+      "summary": "로봇과 embodied agent를 위한 world model 연구를 살펴봅니다."
+    },
+    {
+      "week": "12주차",
+      "title": "Action-Conditioned Prediction, Planning & Policy Learning",
+      "gloss": "Egocentric World Models II",
+      "slides": "",
+      "video": "",
+      "summary": "행동 조건부 예측을 계획과 정책 학습으로 연결하는 연구를 다룹니다."
+    }
+  ]
+}

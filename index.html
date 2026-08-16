@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #FAFAF8; color: #171A21; font-family: 'IBM Plex Sans KR', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #1F3A78; text-decoration: none; }
+  a:hover { color: #0F1E42; text-decoration: underline; }
+</style>
+</helmet>
+<div style="min-height: 100vh; background: #FAFAF8;">
+
+  <header style="position: sticky; top: 0; z-index: 10; background: rgba(250,250,248,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid #E3E2DC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 14px 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <img src="assets/aimlab.png" alt="AIM LAB" style="height: 34px; width: auto; display: block;">
+        <div style="width: 1px; height: 24px; background: #D8D7D0;"></div>
+        <img src="assets/skku.png" alt="Sungkyunkwan University" style="height: 32px; width: auto; display: block;">
+      </div>
+      <nav style="display: flex; align-items: center; gap: 28px; font-size: 14px; font-weight: 500; color: #4A4E58;">
+        <a href="#overview" style="color: #4A4E58;">Overview</a>
+        <a href="#schedule" style="color: #4A4E58;">Schedule</a>
+      </nav>
+    </div>
+  </header>
+
+  <sc-if value="{{ isList }}" hint-placeholder-val="{{ true }}">
+  <section style="max-width: 1120px; margin: 0 auto; padding: 84px 40px 64px;">
+    <div style="display: flex; align-items: center; gap: 10px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672;">
+      <span>AIM LAB</span><span style="color: #C6C5BE;">/</span><span>Sungkyunkwan University</span><span style="color: #C6C5BE;">/</span><span>2026</span>
+    </div>
+    <h1 style="margin: 22px 0 0; font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; color: #101422; white-space: nowrap;">Egocentric Vision Study</h1>
+    <p style="margin: 26px 0 0; max-width: 620px; font-size: 19px; line-height: 1.62; color: #40454F; text-wrap: pretty;">성균관대학교 AIM LAB 산합협력 프로젝트</p>
+    <div style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 16px; border: 1px solid #CFD5E4; border-radius: 999px; background: #fff; font-size: 13px; font-weight: 500; color: #1F3A78;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #1F3A78;"></span>Stage 1 · Egocentric Vision 연구흐름 파악
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; padding: 9px 16px; border: 1px solid #C3DE8C; border-radius: 999px; background: #F5FAEB; font-size: 13px; font-weight: 500; color: #46610F;">
+        <span style="width: 7px; height: 7px; border-radius: 50%; background: #8CC63E;"></span>Stage 2 · Advanced Research Track · Upcoming
+      </div>
+    </div>
+  </section>
+
+  <section id="overview" style="border-top: 1px solid #E3E2DC; background: #fff;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 72px 40px; display: grid; grid-template-columns: 240px 1fr; gap: 64px;">
+      <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672; font-weight: 500;">Overview</h2>
+      <div>
+        <p style="margin: 0; font-size: 18px; line-height: 1.72; color: #2B2F38; text-wrap: pretty;">이 스터디는 연구실이 로봇 플랫폼을 도입한 이후 Human-to-Robot 방향으로 나아가기 위한 Bridge입니다. 사람의 1인칭 시점 영상에서 행동과 공간을 어떻게 이해하는지 먼저 정리하고, 그 표현을 로봇의 인식·정책 학습으로 옮기는 경로를 두 단계로 나눠 다룹니다.</p>
+        <div style="margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+          <div style="padding: 26px 28px; background: #FAFAF8; border: 1px solid #E7E6E0; border-radius: 8px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #1F3A78;">Stage 1</span>
+              <span style="font-size: 13px; color: #5F6672;">10주</span>
+            </div>
+            <div style="font-size: 18px; font-weight: 500; color: #171A21; line-height: 1.4;">Foundations Track</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.68; color: #40454F; text-wrap: pretty;">데이터셋과 대표 태스크를 따라가며 이 분야가 어떤 문제를 어떤 방식으로 풀어왔는지 흐름을 정리합니다. 회차별 슬라이드와 영상으로 순서대로 수강할 수 있습니다.</p>
+          </div>
+          <div style="padding: 26px 28px; background: #F5FAEB; border: 1px solid #DCEBBF; border-radius: 8px; display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #46610F;">Stage 2</span>
+              <span style="font-size: 13px; color: #5F6672;">12주 · Upcoming</span>
+            </div>
+            <div style="font-size: 18px; font-weight: 500; color: #171A21; line-height: 1.4;">Advanced Research Track</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.68; color: #40454F; text-wrap: pretty;">Robot Learning, Embodied AI, World Model을 중심으로 사람 영상에서 로봇 정책으로 이어지는 연구를 다루고, mini project 또는 research proposal로 발전시킵니다.</p>
+          </div>
+        </div>
+        <div style="margin: 40px 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+          <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <img src="assets/lab-arm.jpg" alt="AIM LAB 로봇 팔과 카메라 리그" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid #E7E6E0; border-radius: 8px; display: block; background: #F1F0EA;" />
+            <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #5F6672;">연구실 로봇 팔과 카메라 리그</figcaption>
+          </figure>
+          <figure style="margin: 0; display: flex; flex-direction: column; gap: 10px;">
+            <img src="assets/lab-grippers.jpg" alt="3D 프린팅 그리퍼 하드웨어" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border: 1px solid #E7E6E0; border-radius: 8px; display: block; background: #F1F0EA;" />
+            <figcaption style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: #5F6672;">데이터 수집용 그리퍼 하드웨어</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="schedule" style="border-top: 1px solid #E3E2DC;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 72px 40px 24px;">
+      <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672; font-weight: 500;">Schedule</h2>
+    </div>
+
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px 96px;">
+      <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: center; padding: 0 4px 12px; border-bottom: 1px solid #171A21;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">주차 · 주제 (Topic)</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">PDF</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">영상 (Video)</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 26px 4px 12px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: #1F3A78;">STAGE 1</span>
+        <span style="font-size: 13px; color: #5F6672;">Egocentric Vision 연구흐름 파악 · 10주 (9회차)</span>
+        <span style="height: 1px; flex: 1; background: #DEDDD6;"></span>
+      </div>
+
+      <sc-for list="{{ stage1 }}" as="row" hint-placeholder-count="6">
+        <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
+          <div style="display: flex; align-items: baseline; gap: 20px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F6672; width: 62px; flex-shrink: 0;">{{ row.week }}</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px;">
+              <a href="{{ row.href }}" style="font-size: 17px; font-weight: 500; color: #171A21; letter-spacing: -0.01em; text-decoration: none; border-bottom: 1px solid transparent;" style-hover="borderBottomColor:#171A21">{{ row.title }}</a>
+              <span style="font-size: 14px; line-height: 1.55; color: #5F6672; text-wrap: pretty;">{{ row.gloss }}</span>
+            </div>
+          </div>
+          <div>
+            <sc-if value="{{ row.hasSlides }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ row.slides }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Slides</a>
+            </sc-if>
+            <sc-if value="{{ row.noSlides }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+            </sc-if>
+          </div>
+          <div>
+            <sc-if value="{{ row.hasVideo }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ row.video }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Video</a>
+            </sc-if>
+            <sc-if value="{{ row.noVideo }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="display: flex; align-items: center; gap: 12px; padding: 46px 4px 12px;">
+        <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: #46610F;">STAGE 2</span>
+        <span style="font-size: 13px; color: #5F6672;">Advanced Research Track · 12주 · Upcoming</span>
+        <span style="height: 1px; flex: 1; background: #DEDDD6;"></span>
+      </div>
+
+      <sc-for list="{{ stage2 }}" as="row" hint-placeholder-count="6">
+        <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
+          <div style="display: flex; align-items: baseline; gap: 20px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F6672; width: 62px; flex-shrink: 0;">{{ row.week }}</span>
+            <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px;">
+              <a href="{{ row.href }}" style="font-size: 17px; font-weight: 500; color: #171A21; letter-spacing: -0.01em; text-decoration: none; border-bottom: 1px solid transparent;" style-hover="borderBottomColor:#171A21">{{ row.title }}</a>
+              <span style="font-size: 14px; line-height: 1.55; color: #5F6672; text-wrap: pretty;">{{ row.gloss }}</span>
+            </div>
+          </div>
+          <div>
+            <sc-if value="{{ row.hasSlides }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ row.slides }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Slides</a>
+            </sc-if>
+            <sc-if value="{{ row.noSlides }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+            </sc-if>
+          </div>
+          <div>
+            <sc-if value="{{ row.hasVideo }}" hint-placeholder-val="{{ true }}">
+              <a href="{{ row.video }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Video</a>
+            </sc-if>
+            <sc-if value="{{ row.noVideo }}" hint-placeholder-val="{{ false }}">
+              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+            </sc-if>
+          </div>
+        </div>
+      </sc-for>
+
+      <sc-if value="{{ loadError }}" hint-placeholder-val="{{ false }}">
+        <p style="margin: 24px 4px 0; font-family: 'IBM Plex Mono', monospace; font-size: 12px; line-height: 1.6; color: #8A5A2B;">links.json을 불러오지 못했습니다. 로컬 파일로 직접 열면 브라우저가 JSON 읽기를 차단합니다 — 웹에 올린 주소에서 확인하세요.</p>
+      </sc-if>
+    </div>
+  </section>
+
+  </sc-if>
+
+  <sc-if value="{{ isDetail }}" hint-placeholder-val="{{ false }}">
+    <section style="max-width: 1120px; margin: 0 auto; padding: 72px 40px 96px;">
+      <a href="#schedule" style="display: inline-flex; align-items: center; gap: 8px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #5F6672; text-decoration: none;" style-hover="color:#1F3A78">← Schedule</a>
+      <div style="margin-top: 40px; display: flex; align-items: center; gap: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #1F3A78;">
+        <span>{{ detailStage }}</span><span style="color: #C6C5BE;">/</span><span style="color: #5F6672;">{{ detailWeek }}</span>
+      </div>
+      <h1 style="margin: 18px 0 0; max-width: 900px; font-size: 44px; line-height: 1.14; letter-spacing: -0.025em; font-weight: 600; color: #101422; text-wrap: pretty;">{{ detailTitle }}</h1>
+      <p style="margin: 22px 0 0; max-width: 760px; font-size: 17px; line-height: 1.6; color: #5F6672; text-wrap: pretty;">{{ detailGloss }}</p>
+      <div style="margin: 48px 0 0; display: grid; grid-template-columns: 240px 1fr; gap: 64px; border-top: 1px solid #E3E2DC; padding-top: 40px;">
+        <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672; font-weight: 500;">Summary</h2>
+        <p style="margin: 0; max-width: 660px; font-size: 18px; line-height: 1.75; color: #2B2F38; text-wrap: pretty;">{{ detailSummary }}</p>
+      </div>
+      <div style="margin: 48px 0 0; display: grid; grid-template-columns: 240px 1fr; gap: 64px; border-top: 1px solid #E3E2DC; padding-top: 40px;">
+        <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672; font-weight: 500;">Materials</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+          <sc-if value="{{ detailHasSlides }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ detailSlides }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">PDF</span>Slides 열기
+            </a>
+          </sc-if>
+          <sc-if value="{{ detailHasVideo }}" hint-placeholder-val="{{ true }}">
+            <a href="{{ detailVideo }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">VIDEO</span>영상 열기
+            </a>
+          </sc-if>
+          <sc-if value="{{ detailNoMaterials }}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: 15px; color: #5F6672;">아직 준비되지 않았습니다.</span>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <footer style="border-top: 1px solid #E3E2DC; background: #fff;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 44px 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <img src="assets/aimlab.png" alt="AIM LAB" style="height: 26px; width: auto; display: block; opacity: 0.85;">
+        <span style="font-size: 13px; color: #5F6672;">AIM LAB, Sungkyunkwan University</span>
+      </div>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F6672;">Egocentric Vision Study · 2026</span>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { data: null, loadError: false, route: '' };
+
+  componentDidMount() {
+    fetch('links.json', { cache: 'no-store' })
+      .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then((data) => this.setState({ data, loadError: false }))
+      .catch(() => this.setState({ loadError: true }));
+    this.onHash = () => {
+      this.setState({ route: window.location.hash });
+      if (window.location.hash.indexOf('#/') === 0) window.scrollTo(0, 0);
+    };
+    window.addEventListener('hashchange', this.onHash);
+    this.setState({ route: window.location.hash });
+  }
+
+  componentWillUnmount() {
+    if (this.onHash) window.removeEventListener('hashchange', this.onHash);
+  }
+
+  prep(list, key) {
+    return (list || []).map((r, i) => ({
+      id: key + '-' + i,
+      href: '#/' + key + '-' + i,
+      week: r.week,
+      title: r.title,
+      gloss: r.gloss,
+      summary: r.summary,
+      slides: r.slides,
+      video: r.video,
+      hasSlides: !!r.slides,
+      noSlides: !r.slides,
+      hasVideo: !!r.video,
+      noVideo: !r.video,
+    }));
+  }
+
+  renderVals() {
+    const d = this.state.data || {};
+    const stage1 = this.prep(d.stage1, 's1');
+    const stage2 = this.prep(d.stage2, 's2');
+    const id = (this.state.route || '').indexOf('#/') === 0 ? this.state.route.slice(2) : '';
+    const hit = id ? [...stage1, ...stage2].find((r) => r.id === id) : null;
+    const stageName = hit && hit.id.indexOf('s1') === 0
+      ? 'Stage 1 · Egocentric Vision 연구흐름 파악'
+      : 'Stage 2 · Advanced Research Track';
+    return {
+      stage1,
+      stage2,
+      loadError: this.state.loadError,
+      isList: !hit,
+      isDetail: !!hit,
+      detailStage: hit ? stageName : '',
+      detailWeek: hit ? hit.week : '',
+      detailTitle: hit ? hit.title : '',
+      detailGloss: hit ? hit.gloss : '',
+      detailSummary: hit ? hit.summary : '',
+      detailSlides: hit ? hit.slides : '',
+      detailVideo: hit ? hit.video : '',
+      detailHasSlides: !!(hit && hit.slides),
+      detailHasVideo: !!(hit && hit.video),
+      detailNoMaterials: !!(hit && !hit.slides && !hit.video),
+    };
+  }
+}
+</script>
+</body>
+</html>
