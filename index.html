@@ -219,7 +219,18 @@
               <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #B4B3AC;">PDF</span>준비 중
             </span>
           </sc-if>
-          <sc-if value="{{ detailVideoIsDrive }}" hint-placeholder-val="{{ false }}">
+          <sc-if value="{{ detailVideoIsDriveEmbed }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 760px;">
+              <div style="position: relative; width: 100%; padding-top: 56.25%; background: #171A21; border-radius: 8px; overflow: hidden; border: 1px solid #E3E2DC;">
+                <iframe src="{{ detailVideoEmbed }}" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" allow="autoplay; fullscreen" allowfullscreen="true"></iframe>
+              </div>
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="{{ detailVideoUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 8px 14px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 13px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">새 탭에서 재생</a>
+                <a href="{{ detailVideoDl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; padding: 8px 14px; border: 1px solid #D8D7D0; border-radius: 6px; background: #fff; font-size: 13px; font-weight: 500; color: #40454F; text-decoration: none;" style-hover="borderColor:#40454F">다운로드</a>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{ detailVideoIsDrivePlain }}" hint-placeholder-val="{{ false }}">
             <a href="{{ detailVideoUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
               <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">VIDEO</span>영상 재생
             </a>
@@ -375,6 +386,9 @@ class Component extends DCLogic {
       const slides = this.normSlides(r.slides);
       const video = this.normVideo(r.video);
       const readings = this.normReadings(r.readings);
+      const dm = video && video.type === 'drive' ? String(video.url).match(/\/file\/d\/([^/?#]+)/) : null;
+      const embedUrl = dm ? 'https://drive.google.com/file/d/' + dm[1] + '/preview' : '';
+      const dlUrl = dm ? 'https://drive.google.com/uc?export=download&id=' + dm[1] : '';
       const isZoom = !!(video && video.type === 'zoom');
       return {
         id: id,
@@ -392,6 +406,10 @@ class Component extends DCLogic {
         videoUrl: video ? video.url : '',
         videoPw: isZoom ? video.password : '',
         videoIsDrive: !!(video && video.type === 'drive'),
+        videoEmbed: embedUrl,
+        videoDl: dlUrl,
+        videoIsDriveEmbed: !!(video && video.type === 'drive' && embedUrl),
+        videoIsDrivePlain: !!(video && video.type === 'drive' && !embedUrl),
         videoIsZoom: isZoom,
         noVideo: !video,
         copyPw: isZoom ? this.mkCopy(id + '-pw', video.password) : null,
@@ -427,7 +445,10 @@ class Component extends DCLogic {
       detailReadings: hit ? hit.readings : [],
       detailHasReadings: !!(hit && hit.hasReadings),
       detailVideoUrl: hit ? hit.videoUrl : '',
-      detailVideoIsDrive: !!(hit && hit.videoIsDrive),
+      detailVideoEmbed: hit ? hit.videoEmbed : '',
+      detailVideoDl: hit ? hit.videoDl : '',
+      detailVideoIsDriveEmbed: !!(hit && hit.videoIsDriveEmbed),
+      detailVideoIsDrivePlain: !!(hit && hit.videoIsDrivePlain),
       detailVideoIsZoom: !!(hit && hit.videoIsZoom),
       detailZoomPw: hit ? hit.videoPw : '',
       detailCopyZoomLink: v ? this.mkCopy(hit.id + '-dl-link', v.url) : null,
