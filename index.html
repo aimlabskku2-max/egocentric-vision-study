@@ -130,7 +130,7 @@
             <sc-if value="{{ row.videoIsZoom }}" hint-placeholder-val="{{ false }}">
               <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Zoom 녹화</a>
               <span style="display: inline-flex; align-items: center; gap: 6px; max-width: 100%;">
-                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
+                <span title="Zoom 녹화 암호" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
                 <button onclick="{{ row.copyPw }}" style="flex-shrink: 0; font-family: inherit; font-size: 11px; font-weight: 500; color: #1F3A78; background: #fff; border: 1px solid #CFD5E4; border-radius: 4px; padding: 3px 9px; cursor: pointer;" style-hover="borderColor:#1F3A78">{{ row.pwCopyLabel }}</button>
               </span>
             </sc-if>
@@ -171,7 +171,7 @@
             <sc-if value="{{ row.videoIsZoom }}" hint-placeholder-val="{{ false }}">
               <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Zoom 녹화</a>
               <span style="display: inline-flex; align-items: center; gap: 6px; max-width: 100%;">
-                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
+                <span title="Zoom 녹화 암호" style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
                 <button onclick="{{ row.copyPw }}" style="flex-shrink: 0; font-family: inherit; font-size: 11px; font-weight: 500; color: #1F3A78; background: #fff; border: 1px solid #CFD5E4; border-radius: 4px; padding: 3px 9px; cursor: pointer;" style-hover="borderColor:#1F3A78">{{ row.pwCopyLabel }}</button>
               </span>
             </sc-if>
@@ -359,7 +359,7 @@ class Component extends DCLogic {
         videoIsZoom: isZoom,
         noVideo: !video,
         copyPw: isZoom ? this.mkCopy(id + '-pw', video.password) : null,
-        pwCopyLabel: this.copyLabel(id + '-pw', '복사'),
+        pwCopyLabel: this.copyLabel(id + '-pw', '암호 복사'),
       };
     });
   }
