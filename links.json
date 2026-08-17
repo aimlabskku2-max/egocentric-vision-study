@@ -1,5 +1,5 @@
 {
-  "_readme": "주차별 자료는 이 파일에서만 수정하면 됩니다. slides: [{label, name(선택), url}] 목록 — 빈 목록 []이면 '준비 중'으로 표시. video: 드라이브 영상은 {\"type\":\"drive\",\"url\":...}, 줌 녹화는 {\"type\":\"zoom\",\"url\":...,\"password\":...}, 없으면 null. 예전 방식대로 slides/video에 URL 문자열 하나만 넣어도 동작합니다.",
+  "_readme": "주차별 자료는 이 파일에서만 수정하면 됩니다. slides: [{label, name(선택), url}] 목록 — 빈 목록 []이면 '준비 중'으로 표시. video: 드라이브 영상은 {\"type\":\"drive\",\"url\":...}, 줌 녹화는 {\"type\":\"zoom\",\"url\":...,\"password\":...}, 없으면 null. 예전 방식대로 slides/video에 URL 문자열 하나만 넣어도 동작합니다. readings(선택): [{title, venue, note, url}] 목록 — 상세 페이지에 논문 리스트로 표시됩니다.",
   "stage1": [
     {
       "week": "1–2주차",
@@ -145,98 +145,260 @@
   ],
   "stage2": [
     {
-      "week": "1주차",
-      "title": "Learning from Human Egocentric Video",
-      "gloss": "Robot Learning from Egocentric Video I",
-      "summary": "사람의 1인칭 영상을 로봇 학습의 자료로 사용하는 접근을 정리합니다.",
+      "week": "1회차",
+      "title": "Origins: Learning by Watching Humans",
+      "gloss": "Embodiment Gap & Actionless Videos · Early Imitation from Human Demonstrations · 2017–2021",
+      "summary": "사람 영상에는 액션 라벨이 없고, 사람과 로봇의 몸이 다르다(embodiment gap) — 이 두 난제가 정의된 시기입니다. 시점 불변 표현, 메타러닝 모방, 손 포즈 리타게팅, 픽셀 예측 계획 등 이후 모든 접근의 원형이 등장합니다.",
+      "readings": [
+        {
+          "title": "Time-Contrastive Networks (TCN)",
+          "venue": "ICRA 2018",
+          "url": "https://arxiv.org/abs/1704.06888",
+          "note": "다중 시점 자기지도로 시점 불변 표현을 배워, 사람 영상을 로봇의 보상·표현으로 쓴 출발점."
+        },
+        {
+          "title": "One-Shot Imitation from Observing Humans (DAML)",
+          "venue": "RSS 2018",
+          "url": "https://arxiv.org/abs/1802.01557",
+          "note": "도메인 적응 메타러닝으로 사람 시연 영상 단 한 편에서 로봇 정책을 적응시킨 개념 증명."
+        },
+        {
+          "title": "Deep Visual Foresight for Planning Robot Motion",
+          "venue": "ICRA 2017",
+          "url": "https://arxiv.org/abs/1610.00696",
+          "note": "픽셀 수준 영상 예측 모델로 행동을 계획 — 6회차 world model 계보의 로봇 쪽 뿌리."
+        },
+        {
+          "title": "DexMV: Dexterous Manipulation from Human Videos",
+          "venue": "ECCV 2022",
+          "url": "https://arxiv.org/abs/2108.05877",
+          "note": "손 포즈 추정과 리타게팅으로 사람 영상→덱스터러스 조작 파이프라인을 확립."
+        }
+      ],
       "slides": [],
       "video": null
     },
     {
-      "week": "2주차",
-      "title": "Human Egocentric Video as Weak Demonstration",
-      "gloss": "Robot Learning from Egocentric Video I",
-      "summary": "라벨이 없는 사람 영상을 약한 시연(weak demonstration)으로 활용하는 방법을 다룹니다.",
+      "week": "2회차",
+      "title": "The Ego4D Moment: Pretrained Representations",
+      "gloss": "Large-scale Egocentric Pretraining · Visual Representations & Rewards for Manipulation · 2022–2023",
+      "summary": "Ego4D의 등장으로 사람 1인칭 영상이 시각 표현의 대규모 사전학습 재료가 됩니다. 표현 하나가 조작 학습을 얼마나 가속하는지, 그리고 표현만으로는 무엇이 부족한지 확인합니다.",
+      "readings": [
+        {
+          "title": "Ego4D: Around the World in 3,000 Hours of Egocentric Video",
+          "venue": "CVPR 2022",
+          "url": "https://arxiv.org/abs/2110.07058",
+          "note": "3,670시간 규모의 1인칭 데이터셋 — 이후 모든 사전학습 연구의 촉매가 된 'ImageNet 모먼트'."
+        },
+        {
+          "title": "R3M: A Universal Visual Representation for Robot Manipulation",
+          "venue": "CoRL 2022",
+          "url": "https://arxiv.org/abs/2203.12601",
+          "note": "Ego4D로 사전학습한 시각 표현 하나가 다양한 조작 학습을 크게 가속함을 보임."
+        },
+        {
+          "title": "Real-World Robot Learning with Masked Visual Pre-training (MVP)",
+          "venue": "CoRL 2022",
+          "url": "https://arxiv.org/abs/2210.03109",
+          "note": "사람 영상 masked pretraining을 실제 로봇 학습까지 연결."
+        },
+        {
+          "title": "VIP: Value-Implicit Pre-Training",
+          "venue": "ICLR 2023",
+          "url": "https://arxiv.org/abs/2210.00030",
+          "note": "표현을 가치함수 형태로 사전학습해 보상 신호까지 함께 얻는 접근."
+        },
+        {
+          "title": "VC-1: An Artificial Visual Cortex for Embodied Intelligence",
+          "venue": "NeurIPS 2023",
+          "url": "https://arxiv.org/abs/2303.18240",
+          "note": "'표현 하나로 모든 embodied task가 되는가'를 체계적으로 검증하고 한계를 드러냄."
+        }
+      ],
       "slides": [],
       "video": null
     },
     {
-      "week": "3주차",
-      "title": "Imitation, Skill Learning & Human-to-Robot Transfer",
-      "gloss": "Robot Learning from Egocentric Video II",
-      "summary": "모방 학습과 스킬 학습으로 사람의 동작을 로봇으로 옮기는 연구를 살펴봅니다.",
+      "week": "3회차",
+      "title": "Intermediate Supervision: Affordances & Trajectories",
+      "gloss": "Affordances from Human Videos · Point Tracks & Latent Plans as Policy Interfaces · 2022–2024",
+      "summary": "표현만으로는 부족하다는 인식 아래, 사람 영상에서 접촉점·어포던스·포인트 궤적·잠재 계획처럼 행동에 더 가까운 중간 감독 신호를 추출해 로봇 정책과 잇는 흐름을 다룹니다.",
+      "readings": [
+        {
+          "title": "WHIRL: Human-to-Robot Imitation in the Wild",
+          "venue": "RSS 2022",
+          "url": "https://arxiv.org/abs/2207.09450",
+          "note": "in-the-wild 사람 영상을 prior 삼아 로봇이 스스로 탐색하며 모방."
+        },
+        {
+          "title": "VRB: Affordances from Human Videos",
+          "venue": "CVPR 2023",
+          "url": "https://arxiv.org/abs/2304.08488",
+          "note": "사람 영상에서 접촉점과 이후 궤적(어포던스)을 배워 로봇 학습의 다목적 표현으로."
+        },
+        {
+          "title": "MimicPlay: Long-Horizon Imitation from Human Play",
+          "venue": "CoRL 2023",
+          "url": "https://arxiv.org/abs/2302.12422",
+          "note": "사람의 자유로운 플레이 영상에서 latent plan을 배우고 로봇 저수준 제어와 결합."
+        },
+        {
+          "title": "ATM: Any-point Trajectory Modeling",
+          "venue": "RSS 2024",
+          "url": "https://arxiv.org/abs/2401.00025",
+          "note": "임의 포인트의 미래 궤적 예측을 사전학습해 정책 학습의 범용 인터페이스로."
+        },
+        {
+          "title": "Track2Act: Point Tracks from Internet Videos",
+          "venue": "ECCV 2024",
+          "url": "https://arxiv.org/abs/2405.01527",
+          "note": "웹 영상으로 배운 포인트 트랙 예측만으로 zero-shot에 가까운 일반화 조작을 시연."
+        }
+      ],
       "slides": [],
       "video": null
     },
     {
-      "week": "4주차",
-      "title": "Manipulation Prior, Affordance & Policy Learning",
-      "gloss": "Robot Learning from Egocentric Video II",
-      "summary": "조작 사전지식(manipulation prior)과 어포던스를 정책 학습에 결합하는 방법을 다룹니다.",
+      "week": "4회차",
+      "title": "Human Video as Demonstrations",
+      "gloss": "Data Collection Interfaces: Handheld Grippers & Smart Glasses · Human–Robot Co-training · 2024–2026",
+      "summary": "관점이 뒤집힙니다 — 사람 영상은 보조 신호가 아니라 시연 데이터 그 자체입니다. 핸드헬드 그리퍼와 스마트글래스 같은 수집 인터페이스, 사람·로봇 co-training으로 embodiment gap을 정면 돌파하는, 연구실의 데이터 수집 하드웨어와 직결되는 회차입니다.",
+      "readings": [
+        {
+          "title": "UMI: Universal Manipulation Interface",
+          "venue": "RSS 2024",
+          "url": "https://arxiv.org/abs/2402.10329",
+          "note": "핸드헬드 그리퍼로 로봇 없이 '로봇 시연'을 수집한다는 발상의 전환."
+        },
+        {
+          "title": "DexCap: Portable Hand Motion Capture",
+          "venue": "RSS 2024",
+          "url": "https://arxiv.org/abs/2403.07788",
+          "note": "휴대용 손 모캡 시스템으로 덱스터러스 조작 데이터를 현장에서 수집."
+        },
+        {
+          "title": "EgoMimic: Scaling Imitation Learning via Egocentric Video",
+          "venue": "ICRA 2025",
+          "url": "https://arxiv.org/abs/2410.24221",
+          "note": "Aria 글래스로 찍은 사람 ego 데이터와 로봇 데이터의 co-training으로 모방학습을 스케일링."
+        },
+        {
+          "title": "Humanoid Policy ~ Human Policy (PH2D)",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2503.13441",
+          "note": "사람 데이터를 휴머노이드 데이터와 같은 지위로 두고 통합 학습."
+        },
+        {
+          "title": "EgoDex: Large-Scale Egocentric Dexterous Manipulation",
+          "venue": "ICLR 2026",
+          "url": "https://arxiv.org/abs/2505.11709",
+          "note": "Apple의 초대규모 ego 덱스터러스 조작 데이터셋 — 스케일 경쟁의 신호탄."
+        },
+        {
+          "title": "HumanEgo: Zero-Shot Robot Learning from Minutes of Human Video",
+          "venue": "arXiv 2026",
+          "url": "https://arxiv.org/abs/2605.24934",
+          "note": "단 몇 분의 사람 ego 영상으로 zero-shot 로봇 조작을 달성한 2026년 최전선."
+        }
+      ],
       "slides": [],
       "video": null
     },
     {
-      "week": "5주차",
-      "title": "Egocentric Memory, Navigation & Planning",
-      "gloss": "Egocentric Video for Embodied AI I",
-      "summary": "1인칭 관찰을 기억으로 축적해 탐색과 계획에 사용하는 접근을 정리합니다.",
+      "week": "5회차",
+      "title": "Foundation Models & VLA",
+      "gloss": "From VLM to VLA · Egocentric Human Video as a Pretraining Corpus · 2023–2026",
+      "summary": "VLM에 액션을 붙인 VLA가 등장하고, 사람 1인칭 영상이 데이터 피라미드의 가장 큰 층으로 편입됩니다. latent action과 ego 영상 사전학습 등 이 스터디의 주제와 정확히 교차하는 최신 흐름을 다룹니다.",
+      "readings": [
+        {
+          "title": "RT-2: Vision-Language-Action Models",
+          "venue": "CoRL 2023",
+          "url": "https://arxiv.org/abs/2307.15818",
+          "note": "인터넷 지식을 가진 VLM을 로봇 정책으로 전환 — VLA 개념의 확립."
+        },
+        {
+          "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+          "venue": "CoRL 2024",
+          "url": "https://arxiv.org/abs/2406.09246",
+          "note": "오픈소스 VLA의 기준점이 된 모델과 학습 레시피."
+        },
+        {
+          "title": "π0: A Vision-Language-Action Flow Model",
+          "venue": "arXiv 2024",
+          "url": "https://arxiv.org/abs/2410.24164",
+          "note": "flow matching action expert로 일반 로봇 제어 — π0.5로 이어지는 프런티어."
+        },
+        {
+          "title": "LAPA: Latent Action Pretraining from Videos",
+          "venue": "ICLR 2025",
+          "url": "https://arxiv.org/abs/2410.11758",
+          "note": "액션 라벨 없는 (사람) 영상에서 latent action을 만들어 VLA를 사전학습."
+        },
+        {
+          "title": "GR00T N1: An Open Foundation Model for Humanoid Robots",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2503.14734",
+          "note": "사람 영상·합성·로봇 데이터의 '데이터 피라미드'를 명시한 휴머노이드 파운데이션 모델."
+        },
+        {
+          "title": "EgoVLA: VLA Models from Egocentric Human Videos",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2507.12440",
+          "note": "ego 사람 영상으로 VLA를 직접 학습해 사람→로봇 전이를 보임."
+        },
+        {
+          "title": "Being-H0: VLA Pretraining from Large-Scale Human Videos",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2507.15597",
+          "note": "대규모 사람 영상 VLA 사전학습 — H0.5(cross-embodiment), H0.7(world-action)로 진화 중."
+        }
+      ],
       "slides": [],
       "video": null
     },
     {
-      "week": "6주차",
-      "title": "Object Search, Spatial Memory & Long-Horizon Tasks",
-      "gloss": "Egocentric Video for Embodied AI I",
-      "summary": "공간 기억을 이용한 물체 탐색과 장기 과업(long-horizon task) 수행을 다룹니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "7주차",
-      "title": "Egocentric Video for Embodied Foundation Models",
-      "gloss": "Egocentric Video for Embodied AI II",
-      "summary": "1인칭 영상을 embodied foundation model 학습에 사용하는 연구를 살펴봅니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "8주차",
-      "title": "Egocentric Pretraining for VLM / VLA",
-      "gloss": "Egocentric Video for Embodied AI II",
-      "summary": "VLM·VLA 모델을 1인칭 데이터로 사전학습하는 방법을 다룹니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "9주차",
-      "title": "Egocentric Future Prediction & World Models",
-      "gloss": "Egocentric World Models I",
-      "summary": "다음 장면과 상태를 예측하는 world model 기반 접근을 정리합니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "10주차",
-      "title": "Future State Prediction from First-Person Observation",
-      "gloss": "Egocentric World Models I",
-      "summary": "1인칭 관찰만으로 미래 상태를 예측하는 문제를 다룹니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "11주차",
-      "title": "Egocentric World Models for Robotics and Embodied Agents",
-      "gloss": "Egocentric World Models II",
-      "summary": "로봇과 embodied agent를 위한 world model 연구를 살펴봅니다.",
-      "slides": [],
-      "video": null
-    },
-    {
-      "week": "12주차",
-      "title": "Action-Conditioned Prediction, Planning & Policy Learning",
-      "gloss": "Egocentric World Models II",
-      "summary": "행동 조건부 예측을 계획과 정책 학습으로 연결하는 연구를 다룹니다.",
+      "week": "6회차",
+      "title": "World Models Meet Action",
+      "gloss": "Video Prediction & Latent World Models · World-Action Models, Open Problems & Research Proposals · 2018–2026",
+      "summary": "마지막 승격 — 사람의 1인칭 영상으로 '세계가 어떻게 변하는가' 자체를 배웁니다. 영상 예측에서 world-action model까지의 계보를 따라가고, 각자의 연구 아이디어와 proposal 방향을 논의하며 스터디를 마무리합니다.",
+      "readings": [
+        {
+          "title": "World Models",
+          "venue": "NeurIPS 2018",
+          "url": "https://arxiv.org/abs/1803.10122",
+          "note": "'상상 속에서 학습한다'는 계보의 시조."
+        },
+        {
+          "title": "DreamerV3: Mastering Diverse Domains through World Models",
+          "venue": "arXiv 2023",
+          "url": "https://arxiv.org/abs/2301.04104",
+          "note": "잠재 world model 하나로 다양한 도메인을 제어 — 로봇까지 확장된 계열의 정점."
+        },
+        {
+          "title": "UniPi: Universal Policies via Text-Guided Video Generation",
+          "venue": "NeurIPS 2023",
+          "url": "https://arxiv.org/abs/2302.00111",
+          "note": "영상 생성 자체를 정책으로 쓴 world-action 발상의 시조."
+        },
+        {
+          "title": "Genie: Generative Interactive Environments",
+          "venue": "ICML 2024",
+          "url": "https://arxiv.org/abs/2402.15391",
+          "note": "라벨 없는 영상에서 행동 가능한 생성 환경을 학습 — Genie 3의 실시간 월드로 이어짐."
+        },
+        {
+          "title": "V-JEPA 2: Self-Supervised Video Models for Understanding, Prediction and Planning",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2506.09985",
+          "note": "인터넷 영상 100만 시간의 잠재 예측 + 소량 로봇 데이터로 zero-shot 팔 제어."
+        },
+        {
+          "title": "PEVA: Whole-Body Conditioned Egocentric Video Prediction",
+          "venue": "arXiv 2025",
+          "url": "https://arxiv.org/abs/2506.21552",
+          "note": "전신 동작 조건부 ego 영상 예측 — 'egocentric world model'의 가장 직접적인 사례."
+        }
+      ],
       "slides": [],
       "video": null
     }
