@@ -94,9 +94,9 @@
     </div>
 
     <div style="max-width: 1120px; margin: 0 auto; padding: 0 40px 96px;">
-      <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: center; padding: 0 4px 12px; border-bottom: 1px solid #171A21;">
+      <div style="display: grid; grid-template-columns: 1fr 170px 170px; align-items: center; padding: 0 4px 12px; border-bottom: 1px solid #171A21;">
         <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">주차 · 주제 (Topic)</div>
-        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">PDF</div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">슬라이드 (Slides)</div>
         <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #5F6672;">영상 (Video)</div>
       </div>
 
@@ -107,7 +107,7 @@
       </div>
 
       <sc-for list="{{ stage1 }}" as="row" hint-placeholder-count="6">
-        <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
+        <div style="display: grid; grid-template-columns: 1fr 170px 170px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
           <div style="display: flex; align-items: baseline; gap: 20px;">
             <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F6672; width: 62px; flex-shrink: 0;">{{ row.week }}</span>
             <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px;">
@@ -115,20 +115,27 @@
               <span style="font-size: 14px; line-height: 1.55; color: #5F6672; text-wrap: pretty;">{{ row.gloss }}</span>
             </div>
           </div>
-          <div>
-            <sc-if value="{{ row.hasSlides }}" hint-placeholder-val="{{ true }}">
-              <a href="{{ row.slides }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Slides</a>
-            </sc-if>
+          <div style="display: flex; flex-wrap: wrap; align-content: start; gap: 6px 14px; padding-top: 2px;">
+            <sc-for list="{{ row.slides }}" as="file">
+              <a href="{{ file.url }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">{{ file.label }}</a>
+            </sc-for>
             <sc-if value="{{ row.noSlides }}" hint-placeholder-val="{{ false }}">
-              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+              <span style="display: inline-block; padding: 3px 12px; border: 1px dashed #D8D7D0; border-radius: 999px; background: #F4F3EF; font-size: 12px; color: #8A8F99;">준비 중</span>
             </sc-if>
           </div>
-          <div>
-            <sc-if value="{{ row.hasVideo }}" hint-placeholder-val="{{ true }}">
-              <a href="{{ row.video }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Video</a>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 7px; padding-top: 2px;">
+            <sc-if value="{{ row.videoIsDrive }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Video</a>
+            </sc-if>
+            <sc-if value="{{ row.videoIsZoom }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Zoom 녹화</a>
+              <span style="display: inline-flex; align-items: center; gap: 6px; max-width: 100%;">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
+                <button onclick="{{ row.copyPw }}" style="flex-shrink: 0; font-family: inherit; font-size: 11px; font-weight: 500; color: #1F3A78; background: #fff; border: 1px solid #CFD5E4; border-radius: 4px; padding: 3px 9px; cursor: pointer;" style-hover="borderColor:#1F3A78">{{ row.pwCopyLabel }}</button>
+              </span>
             </sc-if>
             <sc-if value="{{ row.noVideo }}" hint-placeholder-val="{{ false }}">
-              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+              <span style="display: inline-block; padding: 3px 12px; border: 1px dashed #D8D7D0; border-radius: 999px; background: #F4F3EF; font-size: 12px; color: #8A8F99;">준비 중</span>
             </sc-if>
           </div>
         </div>
@@ -141,7 +148,7 @@
       </div>
 
       <sc-for list="{{ stage2 }}" as="row" hint-placeholder-count="6">
-        <div style="display: grid; grid-template-columns: 1fr 120px 120px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
+        <div style="display: grid; grid-template-columns: 1fr 170px 170px; align-items: start; padding: 20px 4px; border-bottom: 1px solid #E7E6E0;" style-hover="background:#FFFFFF">
           <div style="display: flex; align-items: baseline; gap: 20px;">
             <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #5F6672; width: 62px; flex-shrink: 0;">{{ row.week }}</span>
             <div style="display: flex; flex-direction: column; gap: 6px; max-width: 680px;">
@@ -149,20 +156,27 @@
               <span style="font-size: 14px; line-height: 1.55; color: #5F6672; text-wrap: pretty;">{{ row.gloss }}</span>
             </div>
           </div>
-          <div>
-            <sc-if value="{{ row.hasSlides }}" hint-placeholder-val="{{ true }}">
-              <a href="{{ row.slides }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Slides</a>
-            </sc-if>
+          <div style="display: flex; flex-wrap: wrap; align-content: start; gap: 6px 14px; padding-top: 2px;">
+            <sc-for list="{{ row.slides }}" as="file">
+              <a href="{{ file.url }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">{{ file.label }}</a>
+            </sc-for>
             <sc-if value="{{ row.noSlides }}" hint-placeholder-val="{{ false }}">
-              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+              <span style="display: inline-block; padding: 3px 12px; border: 1px dashed #D8D7D0; border-radius: 999px; background: #F4F3EF; font-size: 12px; color: #8A8F99;">준비 중</span>
             </sc-if>
           </div>
-          <div>
-            <sc-if value="{{ row.hasVideo }}" hint-placeholder-val="{{ true }}">
-              <a href="{{ row.video }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none;">Video</a>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 7px; padding-top: 2px;">
+            <sc-if value="{{ row.videoIsDrive }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Video</a>
+            </sc-if>
+            <sc-if value="{{ row.videoIsZoom }}" hint-placeholder-val="{{ false }}">
+              <a href="{{ row.videoUrl }}" target="_blank" rel="noopener" style="font-size: 14px; font-weight: 500; color: #1F3A78; border-bottom: 1px solid #C6D0E6; text-decoration: none; white-space: nowrap;">Zoom 녹화</a>
+              <span style="display: inline-flex; align-items: center; gap: 6px; max-width: 100%;">
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #40454F; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 2px 7px; overflow-wrap: anywhere;">{{ row.videoPw }}</span>
+                <button onclick="{{ row.copyPw }}" style="flex-shrink: 0; font-family: inherit; font-size: 11px; font-weight: 500; color: #1F3A78; background: #fff; border: 1px solid #CFD5E4; border-radius: 4px; padding: 3px 9px; cursor: pointer;" style-hover="borderColor:#1F3A78">{{ row.pwCopyLabel }}</button>
+              </span>
             </sc-if>
             <sc-if value="{{ row.noVideo }}" hint-placeholder-val="{{ false }}">
-              <span style="font-size: 14px; color: #9BA0AA;">—</span>
+              <span style="display: inline-block; padding: 3px 12px; border: 1px dashed #D8D7D0; border-radius: 999px; background: #F4F3EF; font-size: 12px; color: #8A8F99;">준비 중</span>
             </sc-if>
           </div>
         </div>
@@ -190,19 +204,45 @@
       </div>
       <div style="margin: 48px 0 0; display: grid; grid-template-columns: 240px 1fr; gap: 64px; border-top: 1px solid #E3E2DC; padding-top: 40px;">
         <h2 style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: #5F6672; font-weight: 500;">Materials</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+        <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 22px;">
           <sc-if value="{{ detailHasSlides }}" hint-placeholder-val="{{ true }}">
-            <a href="{{ detailSlides }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">PDF</span>Slides 열기
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+              <sc-for list="{{ detailSlides }}" as="file">
+                <a href="{{ file.url }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">{{ file.label }}</span>{{ file.name }}
+                </a>
+              </sc-for>
+            </div>
+          </sc-if>
+          <sc-if value="{{ detailNoSlides }}" hint-placeholder-val="{{ false }}">
+            <span style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px dashed #D8D7D0; border-radius: 6px; background: #FAFAF8; font-size: 14px; font-weight: 500; color: #9BA0AA;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #B4B3AC;">PDF</span>준비 중
+            </span>
+          </sc-if>
+          <sc-if value="{{ detailVideoIsDrive }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ detailVideoUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">VIDEO</span>영상 재생
             </a>
           </sc-if>
-          <sc-if value="{{ detailHasVideo }}" hint-placeholder-val="{{ true }}">
-            <a href="{{ detailVideo }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">VIDEO</span>영상 열기
-            </a>
+          <sc-if value="{{ detailVideoIsZoom }}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 14px; padding: 18px 20px; border: 1px solid #E3E2DC; border-radius: 8px; background: #fff; max-width: 620px;">
+              <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                <a href="{{ detailVideoUrl }}" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px solid #CFD5E4; border-radius: 6px; background: #fff; font-size: 14px; font-weight: 500; color: #1F3A78; text-decoration: none;" style-hover="borderColor:#1F3A78">
+                  <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #5F6672;">ZOOM</span>녹화 보기
+                </a>
+                <button onclick="{{ detailCopyZoomLink }}" style="display: inline-flex; align-items: center; padding: 11px 18px; border: 1px solid #D8D7D0; border-radius: 6px; background: #fff; font-family: inherit; font-size: 14px; font-weight: 500; color: #40454F; cursor: pointer;" style-hover="borderColor:#40454F">{{ detailZoomLinkCopyLabel }}</button>
+              </div>
+              <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+                <span style="font-size: 12px; font-weight: 500; color: #5F6672;">비밀번호</span>
+                <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #171A21; background: #F4F3EF; border: 1px solid #E7E6E0; border-radius: 4px; padding: 4px 10px; overflow-wrap: anywhere;">{{ detailZoomPw }}</span>
+                <button onclick="{{ detailCopyZoomPw }}" style="flex-shrink: 0; font-family: inherit; font-size: 12px; font-weight: 500; color: #1F3A78; background: #fff; border: 1px solid #CFD5E4; border-radius: 4px; padding: 5px 12px; cursor: pointer;" style-hover="borderColor:#1F3A78">{{ detailZoomPwCopyLabel }}</button>
+              </div>
+            </div>
           </sc-if>
-          <sc-if value="{{ detailNoMaterials }}" hint-placeholder-val="{{ false }}">
-            <span style="font-size: 15px; color: #5F6672;">아직 준비되지 않았습니다.</span>
+          <sc-if value="{{ detailNoVideo }}" hint-placeholder-val="{{ false }}">
+            <span style="display: inline-flex; align-items: center; gap: 10px; padding: 11px 18px; border: 1px dashed #D8D7D0; border-radius: 6px; background: #FAFAF8; font-size: 14px; font-weight: 500; color: #9BA0AA;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: #B4B3AC;">VIDEO</span>준비 중
+            </span>
           </sc-if>
         </div>
       </div>
@@ -222,7 +262,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { data: null, loadError: false, route: '' };
+  state = { data: null, loadError: false, route: '', copied: '' };
 
   componentDidMount() {
     fetch('links.json', { cache: 'no-store' })
@@ -239,23 +279,89 @@ class Component extends DCLogic {
 
   componentWillUnmount() {
     if (this.onHash) window.removeEventListener('hashchange', this.onHash);
+    if (this._copyTimer) clearTimeout(this._copyTimer);
+  }
+
+  copyText(text) {
+    const fallback = () => {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).catch(fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  mkCopy(id, text) {
+    return () => {
+      this.copyText(text);
+      this.setState({ copied: id });
+      if (this._copyTimer) clearTimeout(this._copyTimer);
+      this._copyTimer = setTimeout(() => this.setState({ copied: '' }), 1600);
+    };
+  }
+
+  copyLabel(id, idle) {
+    return this.state.copied === id ? '복사됨' : idle;
+  }
+
+  normSlides(raw) {
+    if (Array.isArray(raw)) {
+      return raw.filter((f) => f && f.url).map((f, j) => ({
+        label: f.label || 'FILE ' + (j + 1),
+        name: f.name || '다운로드',
+        url: f.url,
+      }));
+    }
+    if (raw) return [{ label: 'SLIDES', name: '다운로드', url: raw }];
+    return [];
+  }
+
+  normVideo(raw) {
+    if (!raw) return null;
+    if (typeof raw === 'string') return { type: 'drive', url: raw, password: '' };
+    if (!raw.url) return null;
+    return {
+      type: raw.type === 'zoom' ? 'zoom' : 'drive',
+      url: raw.url,
+      password: raw.password || '',
+    };
   }
 
   prep(list, key) {
-    return (list || []).map((r, i) => ({
-      id: key + '-' + i,
-      href: '#/' + key + '-' + i,
-      week: r.week,
-      title: r.title,
-      gloss: r.gloss,
-      summary: r.summary,
-      slides: r.slides,
-      video: r.video,
-      hasSlides: !!r.slides,
-      noSlides: !r.slides,
-      hasVideo: !!r.video,
-      noVideo: !r.video,
-    }));
+    return (list || []).map((r, i) => {
+      const id = key + '-' + i;
+      const slides = this.normSlides(r.slides);
+      const video = this.normVideo(r.video);
+      const isZoom = !!(video && video.type === 'zoom');
+      return {
+        id: id,
+        href: '#/' + id,
+        week: r.week,
+        title: r.title,
+        gloss: r.gloss,
+        summary: r.summary,
+        slides: slides,
+        hasSlides: slides.length > 0,
+        noSlides: slides.length === 0,
+        video: video,
+        videoUrl: video ? video.url : '',
+        videoPw: isZoom ? video.password : '',
+        videoIsDrive: !!(video && video.type === 'drive'),
+        videoIsZoom: isZoom,
+        noVideo: !video,
+        copyPw: isZoom ? this.mkCopy(id + '-pw', video.password) : null,
+        pwCopyLabel: this.copyLabel(id + '-pw', '복사'),
+      };
+    });
   }
 
   renderVals() {
@@ -267,6 +373,7 @@ class Component extends DCLogic {
     const stageName = hit && hit.id.indexOf('s1') === 0
       ? 'Stage 1 · Egocentric Vision 연구흐름 파악'
       : 'Stage 2 · Advanced Research Track';
+    const v = hit ? hit.video : null;
     return {
       stage1,
       stage2,
@@ -278,11 +385,18 @@ class Component extends DCLogic {
       detailTitle: hit ? hit.title : '',
       detailGloss: hit ? hit.gloss : '',
       detailSummary: hit ? hit.summary : '',
-      detailSlides: hit ? hit.slides : '',
-      detailVideo: hit ? hit.video : '',
-      detailHasSlides: !!(hit && hit.slides),
-      detailHasVideo: !!(hit && hit.video),
-      detailNoMaterials: !!(hit && !hit.slides && !hit.video),
+      detailSlides: hit ? hit.slides : [],
+      detailHasSlides: !!(hit && hit.hasSlides),
+      detailNoSlides: !!(hit && hit.noSlides),
+      detailVideoUrl: hit ? hit.videoUrl : '',
+      detailVideoIsDrive: !!(hit && hit.videoIsDrive),
+      detailVideoIsZoom: !!(hit && hit.videoIsZoom),
+      detailZoomPw: hit ? hit.videoPw : '',
+      detailCopyZoomLink: v ? this.mkCopy(hit.id + '-dl-link', v.url) : null,
+      detailZoomLinkCopyLabel: hit ? this.copyLabel(hit.id + '-dl-link', '링크 복사') : '링크 복사',
+      detailCopyZoomPw: v && v.type === 'zoom' ? this.mkCopy(hit.id + '-dl-pw', v.password) : null,
+      detailZoomPwCopyLabel: hit ? this.copyLabel(hit.id + '-dl-pw', '복사') : '복사',
+      detailNoVideo: !!(hit && hit.noVideo),
     };
   }
 }
