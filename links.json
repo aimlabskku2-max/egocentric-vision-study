@@ -1,5 +1,5 @@
 {
-  "_readme": "주차별 자료는 이 파일에서만 수정하면 됩니다. slides: [{label, name(선택), url}] 목록 — 빈 목록 []이면 '준비 중'으로 표시. video: 드라이브 영상은 {\"type\":\"drive\",\"url\":...}, 줌 녹화는 {\"type\":\"zoom\",\"url\":...,\"password\":...}, 없으면 null. 예전 방식대로 slides/video에 URL 문자열 하나만 넣어도 동작합니다. readings(선택): [{title, venue, note, url}] 목록 — 상세 페이지에 논문 리스트로 표시됩니다.",
+  "_readme": "주차별 자료는 이 파일에서만 수정하면 됩니다. slides: [{label, name(선택), url}] 목록 — 빈 목록 []이면 '준비 중'으로 표시. video: 드라이브 영상은 {\"type\":\"drive\",\"url\":...}, 줌 녹화는 {\"type\":\"zoom\",\"url\":...,\"password\":...}, 없으면 null. 예전 방식대로 slides/video에 URL 문자열 하나만 넣어도 동작합니다. readings(선택): [{title, venue, note, url}] 목록 — 상세 페이지에 논문 리스트로 표시됩니다. goal(선택): 회차 학습 목표 한 문장, stage1_goal/stage2_goal: 단계 목표 — Stage 헤더와 상세 페이지 Goal 섹션에 표시됩니다.",
   "stage1": [
     {
       "week": "1–2주차",
@@ -16,7 +16,8 @@
       "video": {
         "type": "drive",
         "url": "https://drive.google.com/file/d/15eh9qDEsVFu52E4h7PRZ6zujZf0yLLMh/view"
-      }
+      },
+      "goal": "1인칭 영상이 왜 중요하고 3인칭과 무엇이 다른지 설명하고, 이후 다룰 태스크의 전체 구조를 그릴 수 있다."
     },
     {
       "week": "3주차",
@@ -38,7 +39,8 @@
       "video": {
         "type": "drive",
         "url": "https://drive.google.com/file/d/1pq2qCjUJzBpJuX5sy4LHXpRKppjZMq3d/view"
-      }
+      },
+      "goal": "Ego와 exo 시점 표현의 차이를 이해하고, 시점 간 학습(cross-view learning)이 왜 필요하며 어떻게 이루어지는지 설명할 수 있다."
     },
     {
       "week": "4주차",
@@ -60,7 +62,8 @@
       "video": {
         "type": "drive",
         "url": "https://drive.google.com/file/d/1kyX-bIK2s5WtnhQNuOMh5-xHBMViCX5U/view"
-      }
+      },
+      "goal": "1인칭 영상에서 행동 인식·시간 구간 검출과 행동 예측의 문제 정의와 대표 접근을 구분해 설명할 수 있다."
     },
     {
       "week": "5주차",
@@ -82,7 +85,8 @@
       "video": {
         "type": "drive",
         "url": "https://drive.google.com/file/d/1po0dBzDydfMs2shXK8NIYSi0vH3MQsii/view"
-      }
+      },
+      "goal": "영상-언어 정렬 학습과 절차 이해가 1인칭 영상에서 어떻게 결합되는지 대표 벤치마크와 함께 설명할 수 있다."
     },
     {
       "week": "6주차",
@@ -104,7 +108,8 @@
       "video": {
         "type": "drive",
         "url": "https://drive.google.com/file/d/1niAoAWUNfOfUV0Q7D5jsMPXyBevqTYMu/view"
-      }
+      },
+      "goal": "1인칭 환경에서 오디오가 시각을 어떻게 보완하는지 이해하고, 오디오-비주얼 이벤트·행동 이해의 대표 과제를 설명할 수 있다."
     },
     {
       "week": "7주차",
@@ -112,7 +117,8 @@
       "gloss": "Speech, Conversation & Social Interaction · Gaze, Gesture & Joint Attention",
       "summary": "대화와 사회적 상호작용을 다루는 연구와, 시선·제스처·공동 주의(joint attention)로 사람의 주의를 추정하는 방법을 살펴봅니다.",
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "착용자의 발화·대화·시선·제스처 신호로 사회적 상호작용과 공동 주의(joint attention)를 추론하는 문제를 설명할 수 있다."
     },
     {
       "week": "8주차",
@@ -120,7 +126,8 @@
       "gloss": "3D Understanding from Egocentric Video · Camera Pose, Spatial Memory & Object Search",
       "summary": "1인칭 영상에서 3차원 공간을 복원하고, 카메라 포즈와 공간 기억을 이용해 물체를 찾는 문제를 다룹니다.",
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "1인칭 영상에서 카메라 포즈 추정, 공간 기억, 물체 위치 파악 같은 3D 공간 이해가 어떻게 이루어지는지 설명할 수 있다."
     },
     {
       "week": "9주차",
@@ -128,15 +135,17 @@
       "gloss": "Hand-Object Interaction Understanding · Contact, Affordance & Object-Centric Interaction",
       "summary": "손과 물체의 상호작용을 인식하는 방법, 접촉(contact)과 어포던스(affordance)에 기반한 물체 중심 이해를 정리합니다.",
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "손-물체 상호작용의 접촉·어포던스 표현이 무엇이고, 왜 이것이 로봇 조작으로 이어지는 핵심 다리인지 설명할 수 있다."
     },
     {
       "week": "10주차",
-      "title": "Open Discussion",
+      "title": "Open Discussion (참여형 class)",
       "gloss": "Individual research idea sharing · Discussion for future research directions",
       "summary": "각자 관심 있는 연구 아이디어를 공유하고, 이후 연구 방향을 함께 논의합니다.",
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "Stage 1의 태스크 지도 위에서 자신이 파고들 축 하나를 고르고, 그 이유를 한 문단으로 설득할 수 있다."
     }
   ],
   "stage2": [
@@ -172,7 +181,8 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "액션 라벨 부재와 embodiment gap이라는 두 난제가 어떻게 정의되었고, 초기 연구(TCN, DAML 등)가 이를 어떻게 처음 공략했는지 설명할 수 있다."
     },
     {
       "week": "2회차",
@@ -212,7 +222,8 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "Ego4D가 촉발한 표현 사전학습(R3M, VIP 등)의 성과와 \"표현만으로는 부족하다\"는 한계(VC-1)를 근거와 함께 설명할 수 있다."
     },
     {
       "week": "3회차",
@@ -252,7 +263,8 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "사람 영상에서 어포던스, 포인트 궤적, 잠재 계획 같은 중간 감독 신호를 추출해 로봇 정책과 잇는 접근들을 비교할 수 있다."
     },
     {
       "week": "4회차",
@@ -298,7 +310,8 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "UMI류 수집 인터페이스와 사람·로봇 co-training이 사람 영상을 시연 데이터 그 자체로 만드는 원리를 설명하고, 연구실 로봇팔로 수집할 데이터의 형태를 구상할 수 있다."
     },
     {
       "week": "5회차",
@@ -350,13 +363,14 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "VLM에서 VLA로의 전환과, 사람 ego 영상이 latent action과 사전학습 코퍼스로 편입되는 방식(LAPA, GR00T, Being-H0 등)을 설명할 수 있다."
     },
     {
       "week": "6회차",
       "title": "World Models Meet Action",
-      "gloss": "Video Prediction & Latent World Models · World-Action Models, Open Problems & Research Proposals · 2018–2026",
-      "summary": "마지막 승격 — 사람의 1인칭 영상으로 '세계가 어떻게 변하는가' 자체를 배웁니다. 영상 예측에서 world-action model까지의 계보를 따라가고, 각자의 연구 아이디어와 proposal 방향을 논의하며 스터디를 마무리합니다.",
+      "gloss": "Video Prediction & Latent World Models · World-Action Models & Open Problems · 2018–2026",
+      "summary": "마지막 승격 — 사람의 1인칭 영상으로 '세계가 어떻게 변하는가' 자체를 배웁니다. 영상 예측에서 world-action model까지의 계보를 따라가며 현재의 open problem을 확인합니다.",
       "readings": [
         {
           "title": "World Models",
@@ -396,7 +410,20 @@
         }
       ],
       "slides": [],
-      "video": null
+      "video": null,
+      "goal": "영상 예측에서 world-action model까지의 계보를 설명할 수 있다."
+    },
+    {
+      "week": "7회차",
+      "title": "Open Discussion (참여형 class)",
+      "gloss": "Open Problems Recap · Research Proposal Sharing & Discussion",
+      "summary": "Stage 2에서 따라온 연구 지형을 함께 정리하고, 각자 고른 빈틈에 대한 research proposal 방향을 공유·토론합니다. 1–2월 오프라인 미니 프로젝트로 이어지는 준비 회차입니다.",
+      "goal": "현재의 open problem 위에서 자신의 research proposal 방향을 제시할 수 있다.",
+      "slides": [],
+      "video": null,
+      "readings": []
     }
-  ]
+  ],
+  "stage1_goal": "Egocentric vision의 태스크 축과 데이터셋 생태를 파악하여, 처음 보는 1인칭 영상 논문도 \"어느 축의 어떤 한계를 공략하는지\" 스스로 위치 지을 수 있다.",
+  "stage2_goal": "사람의 1인칭 영상이 로봇 학습에서 표현 → 중간 감독 → 시연 → 사전학습 코퍼스 → 세계 모델로 변화되어 온 흐름을 대표 논문과 함께 설명하고, 그 지형의 빈틈에서 자신의 research proposal을 도출할 수 있다."
 }
